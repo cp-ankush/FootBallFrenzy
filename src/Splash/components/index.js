@@ -1,0 +1,142 @@
+import React, {Component} from 'react';
+import {StyleSheet, View, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
+
+export default class SplashScreen extends Component<Props> {
+  render() {
+    return (
+      <View style={styles.container}>
+        <ImageBackground
+          source={require('../../../assets/images/background-image.png')}
+          style={styles.backgroundImage}
+          imageStyle={{
+            width: '110%',
+            height: '130%'
+          }}
+        >
+          <LinearGradient
+            colors={['rgba(0,0,0,0.6)', 'rgba(0,0,0,0.6)', 'rgba(0,0,0,0.6)']}
+            style={styles.linearGradient}>
+            <View style={styles.title}>
+              <Text style={styles.logo}>LOGO</Text>
+              <Text style={styles.welcomeText}>Welcome To Football Frenzy</Text>
+            </View>
+
+            {
+              <View style={styles.links}>
+                <View style={{marginTop: '20%'}}/>
+                <TouchableOpacity onPress={this._onPressButton} style={styles.button}>
+                  <Text style={styles.buttonText}>Lets Play</Text>
+                </TouchableOpacity>
+                <View style={styles.linkFooter}>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.textQuestion}>Have a referal code ?</Text>
+                    <Text style={styles.textLink}>Enter a code</Text>
+                  </View>
+                  <View style={styles.textContainer}>
+                    <Text style={[styles.textQuestionRight, styles.alignRight]}>Already a user?</Text>
+                    <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
+                  </View>
+                </View>
+              </View>
+            }
+          </LinearGradient>
+        </ImageBackground>
+      </View>
+
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  linearGradient: {
+    flex: 1,
+    width: '100%',
+    height: '100%'
+  },
+  title: {
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  logo: {
+    color: 'white',
+    fontFamily: "DIN Condensed",
+    fontSize: 50,
+    fontWeight: '700',
+    lineHeight: 50,
+    textAlign: 'center',
+    padding: 15
+  },
+  welcomeText: {
+    color: 'white',
+    fontFamily: 'Roboto',
+    fontSize: 20,
+    lineHeight: 26,
+  },
+  backgroundImage: {
+    width: '100%',
+    height: '100%',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 18,
+    color: 'white',
+    textAlign: 'center'
+  },
+  button: {
+    height: 50,
+    width: '100%',
+    backgroundColor: '#0288D1',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  links: {
+    flex: 0.5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    paddingHorizontal: '10%',
+  },
+  textQuestion: {
+    color: 'white',
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    fontWeight: '300',
+    lineHeight: 20,
+    textAlign: 'left',
+  },
+  textQuestionRight: {
+    color: 'white',
+    fontFamily: 'Roboto',
+    fontSize: 16,
+    fontWeight: '300',
+    lineHeight: 20,
+    textAlign: 'right',
+  },
+  textLink: {
+    color: 'white',
+    fontFamily: 'Roboto',
+    fontSize: 18,
+    fontWeight: '700',
+    lineHeight: 20,
+    textAlign: 'left'
+  },
+  alignRight: {
+    textAlign: 'right'
+  },
+  linkFooter: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  textContainer: {
+    flex: 0.5,
+    flexDirection: 'column',
+    paddingVertical: '5%'
+  },
+});
