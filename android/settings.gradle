@@ -1,0 +1,3 @@
+rootProject.name = 'FootBallFrenzy'
+
+include ':app'
