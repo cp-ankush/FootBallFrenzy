@@ -1,2 +1,2 @@
 # FootBallFrenzy
-App for football betting
+Mobile App for Betting on Football matches.
