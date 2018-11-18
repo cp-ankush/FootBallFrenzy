@@ -1,8 +1,13 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import {StyleSheet, View, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class SplashScreen extends Component<Props> {
+
+  navigateToLoginPage = () => {
+    Actions.login();
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -39,7 +44,9 @@ export default class SplashScreen extends Component<Props> {
                   </View>
                   <View style={styles.textContainer}>
                     <Text style={[styles.textQuestion, styles.alignRight]}>Already a user?</Text>
-                    <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
+                    <TouchableOpacity onPress={this.navigateToLoginPage}>
+                      <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
+                    </TouchableOpacity>
                   </View>
                 </View>
               </View>
