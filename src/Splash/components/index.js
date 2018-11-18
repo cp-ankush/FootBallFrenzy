@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import {StyleSheet, View, Text, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 export default class SplashScreen extends Component<Props> {
@@ -19,7 +19,10 @@ export default class SplashScreen extends Component<Props> {
             colors={['rgba(49,34,34,.4)', 'rgba(0,0,0,0.75)']}
             style={styles.linearGradient}>
             <View style={styles.title}>
-              <Text style={styles.logo}>LOGO</Text>
+              <Image
+                source={require('../../../assets/images/LOGO.png')}
+                style={{height: 50, width: 83}}
+              />
               <Text style={styles.welcomeText}>Welcome To Football Frenzy</Text>
             </View>
 
@@ -75,8 +78,9 @@ const styles = StyleSheet.create({
   welcomeText: {
     color: 'white',
     // fontFamily: 'Roboto',
-    fontSize: 20,
+    fontSize: 24,
     lineHeight: 26,
+    paddingTop: '5%'
   },
   backgroundImage: {
     width: '100%',
