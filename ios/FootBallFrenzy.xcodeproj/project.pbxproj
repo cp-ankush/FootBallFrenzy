@@ -50,6 +50,14 @@
 		7927CB2F15684A3095F47D0A /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8EDBF193957342CAA68C81B9 /* Roboto-Regular.ttf */; };
 		454B24C4DAAE4235BA2DF658 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C7C14B7BA6CC48989E989BE8 /* Roboto-Thin.ttf */; };
 		778E88D697E8430EA55FC199 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4D00B5DFCA7942D0A0947450 /* Roboto-ThinItalic.ttf */; };
+		AEFDFB67F83B47FD8ADC6227 /* D-DINCondensed.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF9DC2E751ED473082541EC4 /* D-DINCondensed.otf */; };
+		54ABE91D7F1C433E9404DD49 /* D-DIN-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B9B25520182B487096844EB1 /* D-DIN-Bold.otf */; };
+		7E2FE10D8DCE4D2A8B2C8A4B /* D-DIN-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 02228635BDF64986BE1A1A05 /* D-DIN-Italic.otf */; };
+		8398948C45434F0D952A4DC0 /* D-DIN.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD03C8D2009942F1B8DBA995 /* D-DIN.otf */; };
+		45B0BE1E04774F1AB512B008 /* D-DINCondensed-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = B0229B53DCE54D6CB171650A /* D-DINCondensed-Bold.otf */; };
+		936C03C4890A44B88CF327EF /* D-DINExp-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 7859566D1576432B95601FBC /* D-DINExp-Bold.otf */; };
+		8B583CDE52584FA9A153C117 /* D-DINExp-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 057E887BF24B4D918FEFD040 /* D-DINExp-Italic.otf */; };
+		DF3B008F85FC46708ED7022E /* D-DINExp.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2BC16399ED764D37BE8D80B5 /* D-DINExp.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,6 +390,14 @@
 		8EDBF193957342CAA68C81B9 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		C7C14B7BA6CC48989E989BE8 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; name = "Roboto-Thin.ttf"; path = "../assets/fonts/Roboto-Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		4D00B5DFCA7942D0A0947450 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; name = "Roboto-ThinItalic.ttf"; path = "../assets/fonts/Roboto-ThinItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AF9DC2E751ED473082541EC4 /* D-DINCondensed.otf */ = {isa = PBXFileReference; name = "D-DINCondensed.otf"; path = "../assets/fonts/D-DINCondensed.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B9B25520182B487096844EB1 /* D-DIN-Bold.otf */ = {isa = PBXFileReference; name = "D-DIN-Bold.otf"; path = "../assets/fonts/D-DIN-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		02228635BDF64986BE1A1A05 /* D-DIN-Italic.otf */ = {isa = PBXFileReference; name = "D-DIN-Italic.otf"; path = "../assets/fonts/D-DIN-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		AD03C8D2009942F1B8DBA995 /* D-DIN.otf */ = {isa = PBXFileReference; name = "D-DIN.otf"; path = "../assets/fonts/D-DIN.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		B0229B53DCE54D6CB171650A /* D-DINCondensed-Bold.otf */ = {isa = PBXFileReference; name = "D-DINCondensed-Bold.otf"; path = "../assets/fonts/D-DINCondensed-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7859566D1576432B95601FBC /* D-DINExp-Bold.otf */ = {isa = PBXFileReference; name = "D-DINExp-Bold.otf"; path = "../assets/fonts/D-DINExp-Bold.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		057E887BF24B4D918FEFD040 /* D-DINExp-Italic.otf */ = {isa = PBXFileReference; name = "D-DINExp-Italic.otf"; path = "../assets/fonts/D-DINExp-Italic.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		2BC16399ED764D37BE8D80B5 /* D-DINExp.otf */ = {isa = PBXFileReference; name = "D-DINExp.otf"; path = "../assets/fonts/D-DINExp.otf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -669,6 +685,14 @@
 				8EDBF193957342CAA68C81B9 /* Roboto-Regular.ttf */,
 				C7C14B7BA6CC48989E989BE8 /* Roboto-Thin.ttf */,
 				4D00B5DFCA7942D0A0947450 /* Roboto-ThinItalic.ttf */,
+				AF9DC2E751ED473082541EC4 /* D-DINCondensed.otf */,
+				B9B25520182B487096844EB1 /* D-DIN-Bold.otf */,
+				02228635BDF64986BE1A1A05 /* D-DIN-Italic.otf */,
+				AD03C8D2009942F1B8DBA995 /* D-DIN.otf */,
+				B0229B53DCE54D6CB171650A /* D-DINCondensed-Bold.otf */,
+				7859566D1576432B95601FBC /* D-DINExp-Bold.otf */,
+				057E887BF24B4D918FEFD040 /* D-DINExp-Italic.otf */,
+				2BC16399ED764D37BE8D80B5 /* D-DINExp.otf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1150,6 +1174,14 @@
 				7927CB2F15684A3095F47D0A /* Roboto-Regular.ttf in Resources */,
 				454B24C4DAAE4235BA2DF658 /* Roboto-Thin.ttf in Resources */,
 				778E88D697E8430EA55FC199 /* Roboto-ThinItalic.ttf in Resources */,
+				AEFDFB67F83B47FD8ADC6227 /* D-DINCondensed.otf in Resources */,
+				54ABE91D7F1C433E9404DD49 /* D-DIN-Bold.otf in Resources */,
+				7E2FE10D8DCE4D2A8B2C8A4B /* D-DIN-Italic.otf in Resources */,
+				8398948C45434F0D952A4DC0 /* D-DIN.otf in Resources */,
+				45B0BE1E04774F1AB512B008 /* D-DINCondensed-Bold.otf in Resources */,
+				936C03C4890A44B88CF327EF /* D-DINExp-Bold.otf in Resources */,
+				8B583CDE52584FA9A153C117 /* D-DINExp-Italic.otf in Resources */,
+				DF3B008F85FC46708ED7022E /* D-DINExp.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

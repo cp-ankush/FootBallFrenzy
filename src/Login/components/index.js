@@ -1,68 +1,76 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, TextInput, Image, TouchableOpacity } from 'react-native';
+import {StyleSheet, View, Text, ImageBackground, TextInput, Image, TouchableOpacity, Platform } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+
+const condensedFont = Platform.OS === 'android'? 'd_dincondensed' : 'DIN Condensed'
 
 export default class SplashScreen extends Component<Props> {
   render(){
     return (
     <View style={{flex: 1}}>
       <ImageBackground
-          source={require('../../../assets/images/background-image.png')}
-          style={{width: '100%', height: '100%', flex: 0.3}}>
-            <LinearGradient
-            locations={[0, 1]}
-            colors={['rgba(49,34,34,.2)', 'rgba(0,0,0,0.65)']}
-            style={styles.linearGradient}>
-            <View style={styles.title}>
-              <Image
-                source={require('../../../assets/images/LOGO.png')}
-                style={{height: 50, width: 83}}
-              />
-              </View>
-            </LinearGradient>
-          </ImageBackground>
-          <View style={styles.formContainer}>
-            <View style={styles.form}>
-              <View style={styles.loginContainer}>
-                <Text style={styles.loginText}>Login</Text>
-              </View>
-              <View style={styles.inputContainer}>
-                <TextInput style={styles.textInput}
-                placeholder="Mobile no."
-                placeholderTextColor="#BDBDBD"/>
-                <TextInput style={styles.textInput}
-                placeholder="Password"
-                placeholderTextColor="#BDBDBD"/>
-                <View style={styles.buttonContainer}>
-                  <TouchableOpacity style={styles.button}>
-                    <Text style={styles.login}>LOGIN</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                    <Text style={styles.forgetPasswordStyle}>Forgot Password?</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-              <View style={styles.optionsContainer}>
-                <Text style={styles.orHeading}>OR CONTINUE WITH</Text>
-                <View style={styles.loginOptions}>
-                  <TouchableOpacity style={styles.optionButton}>
-                    <Image source={require('../../../assets/images/facebook-icon.png')}
-                    style={{width: 20, height: 20}}/>
-                    <Text style={[styles.optionText, styles.facebook]}>Facebook</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.optionButton}>
-                  <Image source={require('../../../assets/images/google-icon.png')}
-                    style={{width: 20, height: 20}}/>
-                    <Text style={[styles.optionText, styles.google]}>Google</Text>
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.footerContainer}>
-                  <Text style={styles.questionText}>Do you have an account ?  </Text>
-                  <Text style={styles.register}>Register</Text>
-                </View>
-              </View>
+      source={require('../../../assets/images/background-image.png')}
+      style={{width: '100%', height: '100%', flex: 0.31}}
+      imageStyle={{
+        width: '105%',
+        height: '130%'
+      }}
+      >
+        <LinearGradient
+        locations={[0, 1]}
+        colors={['rgba(49,34,34,.4)', 'rgba(0,0,0,0.5)']}
+        style={styles.linearGradient}>
+        <View style={styles.title}>
+          <Image
+            source={require('../../../assets/images/LOGO.png')}
+            style={{height: 60, width: 100}}
+          />
+          </View>
+        </LinearGradient>
+      </ImageBackground>
+      <View style={styles.formContainer}>
+        <View style={styles.form}>
+          <View style={styles.loginContainer}>
+            <Text style={styles.loginText}>Login</Text>
+          </View>
+          <View style={styles.inputContainer}>
+            <TextInput style={styles.textInput}
+            placeholder="Mobile no."
+            placeholderTextColor="#BDBDBD"/>
+            <View style={styles.separator} />
+            <TextInput style={styles.textInput}
+            placeholder="Password"
+            placeholderTextColor="#BDBDBD"/>
+            <View style={styles.buttonContainer}>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.login}>LOGIN</Text>
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Text style={styles.forgetPasswordStyle}>Forgot Password?</Text>
+              </TouchableOpacity>
             </View>
           </View>
+          <View style={styles.optionsContainer}>
+            <Text style={styles.orHeading}>OR CONTINUE WITH</Text>
+            <View style={styles.loginOptions}>
+              <TouchableOpacity style={styles.optionButton}>
+                <Image source={require('../../../assets/images/facebook-icon.png')}
+                style={{width: 20, height: 20}}/>
+                <Text style={[styles.optionText, styles.facebook]}>Facebook</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.optionButton}>
+              <Image source={require('../../../assets/images/google-icon.png')}
+                style={{width: 20, height: 20}}/>
+                <Text style={[styles.optionText, styles.google]}>Google</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.footerContainer}>
+              <Text style={styles.questionText}>Do you have an account ?  </Text>
+              <Text style={styles.register}>Register</Text>
+            </View>
+          </View>
+        </View>
+      </View>
     </View>
     );
   }
@@ -75,59 +83,64 @@ const styles = StyleSheet.create({
     height: '100%'
   },
   loginContainer: {
-    flex: 0.2,
+    flex: 0.1,
     justifyContent: 'center',
     alignItems: 'center'
   },
   title: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: '10%'
   },
   formContainer: {
-    flex: 0.7,
+    flex: 0.69,
     backgroundColor: '#E3E3E3',
     position: 'relative',
-    padding: '3%'
+    paddingHorizontal: '3%',
+    paddingTop: '3%',
   },
   form: {
     position: 'absolute',
-    top: '-3%',
+    top: '-5%',
     backgroundColor: 'white',
     flex: 1,
     width: '100%',
-    height: '100%',
+    height: '105%',
     alignSelf: 'center',
     paddingHorizontal: '6%',
-    paddingVertical: '7%',
+    paddingTop: '5%',
   },
   inputContainer: {
     flex: 0.6,
     width: '100%',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   loginText: {
     color: '#2A2A2A',
-    // fontFamily: "DIN Condensed",
-    fontSize: 25,
+    fontFamily: condensedFont,
+    fontSize: 31,
     fontWeight: '700',
-    lineHeight: 25,
   },
   textInput: {
+    marginTop: "4%",
     height: 40,
     width: '100%',
     fontFamily: 'Roboto',
-    fontSize: 16,
+    fontSize: 17,
     lineHeight: 18,
-    borderBottomColor: "#BDBDBD",
+    borderBottomColor: "rgb(150, 150, 150)",
     borderBottomWidth: 1,
+  },
+  separator: {
+    margin: "2%",
   },
   buttonContainer: {
     marginTop: '7%',
     padding: '3%'
   },
   button: {
-    height: 40,
+    height: 45,
     backgroundColor: '#0288D1',
     alignItems: 'center',
     justifyContent: 'center',
@@ -135,18 +148,18 @@ const styles = StyleSheet.create({
   },
   login: {
     color: 'white',
-    fontWeight: '500'
+    fontWeight: 'bold'
   },
   forgetPasswordStyle: {
     textDecorationLine: 'underline',
     color: '#6C6C6C',
     fontFamily: 'Roboto',
-    fontSize: 14,
-    paddingVertical: '3%',
+    fontSize: 15,
+    paddingTop: '5%',
   },
   optionsContainer: {
     flex: 0.4,
-    justifyContent: 'space-between'
+    justifyContent: 'space-around'
   },
   orHeading: {
     color: '#A2A2A2',
@@ -161,7 +174,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-evenly',
   },
   optionButton: {
-    flexDirection: 'row', 
+    flexDirection: 'row',
+    elevation: 3,
     shadowColor: '#000000',
     shadowOffset: {
       width: 0,
@@ -169,10 +183,10 @@ const styles = StyleSheet.create({
     },
     shadowRadius: 3,
     shadowOpacity: 0.2,
-    backgroundColor: 'white', 
-    width: '40%', 
-    justifyContent: 'center', 
-    alignItems: 'center', 
+    backgroundColor: 'white',
+    width: '40%',
+    justifyContent: 'center',
+    alignItems: 'center',
     height: 50
   },
   optionText: {

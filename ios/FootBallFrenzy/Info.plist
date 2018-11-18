@@ -67,6 +67,14 @@
 		<string>Roboto-Regular.ttf</string>
 		<string>Roboto-Thin.ttf</string>
 		<string>Roboto-ThinItalic.ttf</string>
+		<string>D-DINCondensed.otf</string>
+		<string>D-DIN-Bold.otf</string>
+		<string>D-DIN-Italic.otf</string>
+		<string>D-DIN.otf</string>
+		<string>D-DINCondensed-Bold.otf</string>
+		<string>D-DINExp-Bold.otf</string>
+		<string>D-DINExp-Italic.otf</string>
+		<string>D-DINExp.otf</string>
 	</array>
 </dict>
 </plist>

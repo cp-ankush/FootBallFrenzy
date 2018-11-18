@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, TouchableOpacity } from 'react-native';
+import {StyleSheet, View, Text, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -73,18 +73,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  logo: {
-    color: 'white',
-    // fontFamily: "DIN Condensed",
-    fontSize: 50,
-    fontWeight: '700',
-    lineHeight: 50,
-    textAlign: 'center',
-    padding: 15
-  },
   welcomeText: {
     color: 'white',
-    // fontFamily: 'Roboto',
+    fontFamily: 'Roboto',
     fontSize: 24,
     lineHeight: 26,
     paddingTop: '5%'

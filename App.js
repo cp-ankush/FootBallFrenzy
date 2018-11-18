@@ -9,9 +9,9 @@ export default class App extends Component<Props> {
         <StatusBar
             hidden={false}
             backgroundColor = "#130F0D"/>
-        {/* <SafeAreaView style={styles.statusBarStyle}> */}
+        <SafeAreaView style={styles.statusBarStyle}>
           <Landing />
-       {/* </SafeAreaView> */}
+       </SafeAreaView> 
       </View>
     );
   }
