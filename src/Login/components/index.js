@@ -1,77 +1,123 @@
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, TextInput, Image, TouchableOpacity, Platform } from 'react-native';
+import {StyleSheet, Keyboard, View, Text, ImageBackground, TextInput, Image, TouchableOpacity, Platform } from 'react-native';
+import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 
 const condensedFont = Platform.OS === 'android'? 'd_dincondensed' : 'DIN Condensed'
 
-export default class SplashScreen extends Component<Props> {
+export default class LoginScreen extends Component<Props> {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      showOptions: true
+    }
+  }
+
+  navigateToRegistrationPage = () => {
+    Actions.registration();
+  }
+
+  componentDidMount () {
+    this.keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+    this.keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+  }
+
+  componentWillUnmount () {
+    this.keyboardDidShowListener.remove();
+    this.keyboardDidHideListener.remove();
+  }
+
+  _keyboardDidShow = () => {
+    this.setState({
+      showOptions: false
+    })
+  }
+
+  _keyboardDidHide = () => {
+    this.setState({
+      showOptions: true
+    })
+  }
+
   render(){
     return (
-    <View style={{flex: 1}}>
-      <ImageBackground
-      source={require('../../../assets/images/background-image.png')}
-      style={{width: '100%', height: '100%', flex: 0.31}}
-      imageStyle={{
-        width: '105%',
-        height: '130%'
-      }}
-      >
-        <LinearGradient
-        locations={[0, 1]}
-        colors={['rgba(49,34,34,.4)', 'rgba(0,0,0,0.5)']}
-        style={styles.linearGradient}>
-        <View style={styles.title}>
-          <Image
-            source={require('../../../assets/images/LOGO.png')}
-            style={{height: 60, width: 100}}
-          />
-          </View>
-        </LinearGradient>
-      </ImageBackground>
-      <View style={styles.formContainer}>
-        <View style={styles.form}>
-          <View style={styles.loginContainer}>
-            <Text style={styles.loginText}>Login</Text>
-          </View>
-          <View style={styles.inputContainer}>
-            <TextInput style={styles.textInput}
-            placeholder="Mobile no."
-            placeholderTextColor="#BDBDBD"/>
-            <View style={styles.separator} />
-            <TextInput style={styles.textInput}
-            placeholder="Password"
-            placeholderTextColor="#BDBDBD"/>
-            <View style={styles.buttonContainer}>
-              <TouchableOpacity style={styles.button}>
-                <Text style={styles.login}>LOGIN</Text>
-              </TouchableOpacity>
-              <TouchableOpacity>
-                <Text style={styles.forgetPasswordStyle}>Forgot Password?</Text>
-              </TouchableOpacity>
+      <View style={{flex: 1}}>
+        <ImageBackground
+        source={require('../../../assets/images/background-image.png')}
+        style={{width: '100%', height: '100%', flex: 0.31}}
+        imageStyle={{
+          width: '105%',
+          height: '130%'
+        }}
+        >
+          <LinearGradient
+          locations={[0, 1]}
+          colors={['rgba(49,34,34,.4)', 'rgba(0,0,0,0.5)']}
+          style={styles.linearGradient}>
+          {
+            this.state.showOptions &&
+            <View style={styles.title}>
+              <Image
+                source={require('../../../assets/images/LOGO.png')}
+                style={{height: 60, width: 100}}
+              />
             </View>
-          </View>
-          <View style={styles.optionsContainer}>
-            <Text style={styles.orHeading}>OR CONTINUE WITH</Text>
-            <View style={styles.loginOptions}>
-              <TouchableOpacity style={styles.optionButton}>
-                <Image source={require('../../../assets/images/facebook-icon.png')}
-                style={{width: 20, height: 20}}/>
-                <Text style={[styles.optionText, styles.facebook]}>Facebook</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.optionButton}>
-              <Image source={require('../../../assets/images/google-icon.png')}
-                style={{width: 20, height: 20}}/>
-                <Text style={[styles.optionText, styles.google]}>Google</Text>
-              </TouchableOpacity>
+          }
+          </LinearGradient>
+        </ImageBackground>
+        <View style={styles.formContainer}>
+          <View style={styles.form}>
+            <View style={styles.loginContainer}>
+              <Text style={styles.loginText}>LOGIN</Text>
             </View>
-            <View style={styles.footerContainer}>
-              <Text style={styles.questionText}>Do you have an account ?  </Text>
-              <Text style={styles.register}>Register</Text>
+            <View style={styles.inputContainer}>
+              <TextInput style={styles.textInput}
+              placeholder="Mobile no."
+              placeholderTextColor="#BDBDBD"/>
+              <View style={styles.separator} />
+              <TextInput style={styles.textInput}
+              placeholder="Password"
+              placeholderTextColor="#BDBDBD"/>
+              <View style={styles.buttonContainer}>
+                <TouchableOpacity style={styles.button}>
+                  <Text style={styles.login}>LOGIN</Text>
+                </TouchableOpacity>
+                {
+                  this.state.showOptions &&
+                  <TouchableOpacity>
+                    <Text style={styles.forgetPasswordStyle}>Forgot Password?</Text>
+                  </TouchableOpacity>
+                }
+              </View>
             </View>
+            {
+              this.state.showOptions &&
+              <View style={styles.optionsContainer}>
+                <Text style={styles.orHeading}>OR CONTINUE WITH</Text>
+                <View style={styles.loginOptions}>
+                  <TouchableOpacity style={styles.optionButton}>
+                    <Image source={require('../../../assets/images/facebook-icon.png')}
+                    style={{width: 20, height: 20}}/>
+                    <Text style={[styles.optionText, styles.facebook]}>Facebook</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={styles.optionButton}>
+                  <Image source={require('../../../assets/images/google-icon.png')}
+                    style={{width: 20, height: 20}}/>
+                    <Text style={[styles.optionText, styles.google]}>Google</Text>
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.footerContainer} onPress={this.navigateToRegistrationPage}>
+                  <Text style={styles.questionText}>Do you have an account ?  </Text>
+                  <Text style={styles.register}>Register</Text>
+                </TouchableOpacity>
+              </View>
+            }
+
           </View>
         </View>
       </View>
-    </View>
+
     );
   }
 }
@@ -205,7 +251,7 @@ const styles = StyleSheet.create({
   footerContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'flex-end',
+    paddingBottom: '2%',
   },
   questionText: {
     color: '#A2A2A2',

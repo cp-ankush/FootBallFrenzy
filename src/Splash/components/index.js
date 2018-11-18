@@ -42,12 +42,10 @@ export default class SplashScreen extends Component<Props> {
                     <Text style={styles.textQuestion}>Have a referal code ?</Text>
                     <Text style={styles.textLink}>Enter a code</Text>
                   </View>
-                  <View style={styles.textContainer}>
+                  <TouchableOpacity style={styles.textContainer} onPress={this.navigateToLoginPage}>
                     <Text style={[styles.textQuestion, styles.alignRight]}>Already a user?</Text>
-                    <TouchableOpacity onPress={this.navigateToLoginPage}>
-                      <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
-                    </TouchableOpacity>
-                  </View>
+                    <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
+                  </TouchableOpacity>
                 </View>
               </View>
             }
