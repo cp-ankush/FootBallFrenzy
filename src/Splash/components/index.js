@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     color: 'white',
     // fontFamily: 'Roboto',
-    fontSize: 20,
+    fontSize: 24,
     lineHeight: 26,
   },
   backgroundImage: {
