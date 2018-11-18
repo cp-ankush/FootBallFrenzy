@@ -23,6 +23,6 @@ const styles = StyleSheet.create({
   },
   statusBarStyle: {
     flex: 1,
-    backgroundColor: "transparent"
+    backgroundColor: "#130F0D"
   },
 });

@@ -10,12 +10,13 @@ export default class SplashScreen extends Component<Props> {
           source={require('../../../assets/images/background-image.png')}
           style={styles.backgroundImage}
           imageStyle={{
-            width: '110%',
-            height: '130%'
+            width: '100%',
+            height: '125%'
           }}
         >
           <LinearGradient
-            colors={['rgba(0,0,0,0.6)', 'rgba(0,0,0,0.6)', 'rgba(0,0,0,0.6)']}
+            locations={[0, 1]}
+            colors={['rgba(49,34,34,.4)', 'rgba(0,0,0,0.75)']}
             style={styles.linearGradient}>
             <View style={styles.title}>
               <Text style={styles.logo}>LOGO</Text>
@@ -26,7 +27,7 @@ export default class SplashScreen extends Component<Props> {
               <View style={styles.links}>
                 <View style={{marginTop: '20%'}}/>
                 <TouchableOpacity onPress={this._onPressButton} style={styles.button}>
-                  <Text style={styles.buttonText}>Lets Play</Text>
+                  <Text style={styles.buttonText}>{`Let's Play`}</Text>
                 </TouchableOpacity>
                 <View style={styles.linkFooter}>
                   <View style={styles.textContainer}>
@@ -34,7 +35,7 @@ export default class SplashScreen extends Component<Props> {
                     <Text style={styles.textLink}>Enter a code</Text>
                   </View>
                   <View style={styles.textContainer}>
-                    <Text style={[styles.textQuestionRight, styles.alignRight]}>Already a user?</Text>
+                    <Text style={[styles.textQuestion, styles.alignRight]}>Already a user?</Text>
                     <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
                   </View>
                 </View>
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
   },
   logo: {
     color: 'white',
-    fontFamily: "DIN Condensed",
+    // fontFamily: "DIN Condensed",
     fontSize: 50,
     fontWeight: '700',
     lineHeight: 50,
@@ -73,7 +74,7 @@ const styles = StyleSheet.create({
   },
   welcomeText: {
     color: 'white',
-    fontFamily: 'Roboto',
+    // fontFamily: 'Roboto',
     fontSize: 20,
     lineHeight: 26,
   },
@@ -85,12 +86,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   buttonText: {
-    fontSize: 18,
+    fontSize: 15,
     color: 'white',
-    textAlign: 'center'
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
   button: {
-    height: 50,
+    height: 45,
     width: '100%',
     backgroundColor: '#0288D1',
     alignItems: 'center',
@@ -104,15 +106,15 @@ const styles = StyleSheet.create({
   },
   textQuestion: {
     color: 'white',
-    fontFamily: 'Roboto',
-    fontSize: 16,
+    // fontFamily: 'Roboto',
+    fontSize: 14,
     fontWeight: '300',
     lineHeight: 20,
     textAlign: 'left',
   },
   textQuestionRight: {
     color: 'white',
-    fontFamily: 'Roboto',
+    // fontFamily: 'Roboto',
     fontSize: 16,
     fontWeight: '300',
     lineHeight: 20,
@@ -120,7 +122,7 @@ const styles = StyleSheet.create({
   },
   textLink: {
     color: 'white',
-    fontFamily: 'Roboto',
+    // fontFamily: 'Roboto',
     fontSize: 18,
     fontWeight: '700',
     lineHeight: 20,
@@ -137,6 +139,6 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 0.5,
     flexDirection: 'column',
-    paddingVertical: '5%'
+    paddingVertical: '7%'
   },
 });
