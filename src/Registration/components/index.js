@@ -1,19 +1,20 @@
 import React, {Component} from 'react';
 import {
-  StyleSheet, 
-  View, 
-  Text, 
-  ImageBackground, 
-  TextInput, 
-  Image, 
-  TouchableOpacity, 
-  Platform, 
-  Keyboard, 
-  ScrollView 
+  StyleSheet,
+  View,
+  Text,
+  ImageBackground,
+  TextInput,
+  Image,
+  TouchableOpacity,
+  Platform,
+  Keyboard,
+  ScrollView
 } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
 import LoginOptions from '../../shared/components/login-options';
+import LoginAndReferalLinks from '../../shared/components/login-referal-links'
 
 const condensedFont = Platform.OS === 'android'? 'd_dincondensed' : 'DIN Condensed'
 
@@ -52,13 +53,8 @@ export default class RegistrationScreen extends Component<Props> {
     })
   }
 
-  navigateToLoginPage = () => {
-    Actions.login();
-  }
-
   render(){
     return (
-      <ScrollView contentContainerStyle={{flex: 1}}>
         <View style={{flex: 1}}>
           <ImageBackground
           source={require('../../../assets/images/background-image.png')}
@@ -119,21 +115,15 @@ export default class RegistrationScreen extends Component<Props> {
                   </View>
                   {
                     this.state.showOptions &&
-                    // <TouchableOpacity style={styles.footerContainer} onPress={this.navigateToLoginPage}>
-                    //   <Text style={styles.questionText}>Already a user ?  </Text>
-                    //   <Text style={styles.loginText}>Login</Text>
-                    // </TouchableOpacity>
                     <View style={styles.options}>
                       <LoginOptions/>
-                      <View style={styles.linkFooter}>
-                        <View style={styles.textContainer}>
-                          <Text style={styles.textQuestion}>Have a referal code ?</Text>
-                          <Text style={styles.textLink}>Enter a code</Text>
-                        </View>
-                        <TouchableOpacity style={styles.textContainer} onPress={this.navigateToLoginPage}>
-                          <Text style={[styles.textQuestion, styles.alignRight]}>Already a user?</Text>
-                          <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
-                        </TouchableOpacity>
+                      <View style={styles.loginReferalLinkContainer}>
+                        <LoginAndReferalLinks
+                          linkContainer={styles.linkFooter}
+                          textContainer={styles.textContainer}
+                          textQuestion={styles.textQuestion}
+                          textLink={styles.textLink}
+                          />
                       </View>
                     </View>
                   }
@@ -142,51 +132,43 @@ export default class RegistrationScreen extends Component<Props> {
             </View>
           </View>
         </View>
-    </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  textQuestion: {
-    color: 'white',
-    // fontFamily: 'Roboto',
-    fontSize: 14,
-    fontWeight: '300',
-    lineHeight: 20,
-    textAlign: 'left',
-  },
-  textQuestionRight: {
-    color: 'white',
-    // fontFamily: 'Roboto',
-    fontSize: 16,
-    fontWeight: '300',
-    lineHeight: 20,
-    textAlign: 'right',
-  },
-  textLink: {
-    color: 'white',
-    // fontFamily: 'Roboto',
-    fontSize: 18,
-    fontWeight: '700',
-    lineHeight: 20,
-    textAlign: 'left'
-  },
-  alignRight: {
-    textAlign: 'right'
+  loginReferalLinkContainer: {
+    height: 100,
+    alignItems: 'center',
+    marginTop: '5%'
   },
   linkFooter: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
   },
   textContainer: {
-    flex: 0.5,
+    flex: 1,
     flexDirection: 'column',
-    paddingVertical: '7%'
+  },
+  textQuestion: {
+  	color: '#2A2A2A',
+  	fontFamily: 'Roboto',
+  	fontSize: 14,
+  	fontWeight: '300',
+  	lineHeight: 20,
+  	textAlign: 'left',
+  },
+  textLink: {
+  	color: '#0288D1',
+  	fontFamily: 'Roboto',
+  	fontSize: 16,
+  	fontWeight: '700',
+  	lineHeight: 22,
   },
   options: {
-    flex: 0
+    flex: 1,
   },
   termsLink: {
     color: '#0288D1'
@@ -200,6 +182,7 @@ const styles = StyleSheet.create({
   terms: {
     flexDirection: 'row',
     paddingTop: '2%',
+    height: 20,
     flex: 0,
     justifyContent: 'center',
     alignItems: 'center',
@@ -221,7 +204,7 @@ const styles = StyleSheet.create({
     marginTop: '10%'
   },
   formContainer: {
-    flex: 1, //0.69
+    flex: 0.69,
     backgroundColor: '#E3E3E3',
     position: 'relative',
     paddingHorizontal: '3%',
@@ -239,7 +222,7 @@ const styles = StyleSheet.create({
     paddingTop: '5%',
   },
   inputContainer: {
-    flex: 0.9,
+    flex: 1,
     width: '100%',
     justifyContent: 'space-between',
   },
@@ -276,21 +259,6 @@ const styles = StyleSheet.create({
   register: {
     color: 'white',
     fontWeight: 'bold'
-  },
-  footerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingVertical: '7%',
-  },
-  questionText: {
-    color: '#A2A2A2',
-    fontSize: 12,
-    fontFamily: 'Roboto'
-  },
-  loginText: {
-    fontSize: 12,
-    fontFamily: 'Roboto',
-    fontWeight: '600'
   },
   subtitleText: {
     color: '#7D7B7B',

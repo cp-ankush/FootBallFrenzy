@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Keyboard, View, Text, ImageBackground, TextInput, Image, TouchableOpacity, Platform } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
+import LoginOptions from '../../shared/components/login-options';
 
 const condensedFont = Platform.OS === 'android'? 'd_dincondensed' : 'DIN Condensed'
 
@@ -95,25 +96,13 @@ export default class LoginScreen extends Component<Props> {
               this.state.showOptions &&
               <View style={styles.optionsContainer}>
                 <Text style={styles.orHeading}>OR CONTINUE WITH</Text>
-                <View style={styles.loginOptions}>
-                  <TouchableOpacity style={styles.optionButton}>
-                    <Image source={require('../../../assets/images/facebook-icon.png')}
-                    style={{width: 20, height: 20}}/>
-                    <Text style={[styles.optionText, styles.facebook]}>Facebook</Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.optionButton}>
-                  <Image source={require('../../../assets/images/google-icon.png')}
-                    style={{width: 20, height: 20}}/>
-                    <Text style={[styles.optionText, styles.google]}>Google</Text>
-                  </TouchableOpacity>
-                </View>
+                <LoginOptions/>
                 <TouchableOpacity style={styles.footerContainer} onPress={this.navigateToRegistrationPage}>
                   <Text style={styles.questionText}>Not a member ? </Text>
                   <Text style={styles.register}>Register</Text>
                 </TouchableOpacity>
               </View>
             }
-
           </View>
         </View>
       </View>

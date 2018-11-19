@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, View, Text, ImageBackground, TouchableOpacity, Image } from 'react-native';
 import {Actions} from 'react-native-router-flux';
 import LinearGradient from 'react-native-linear-gradient';
+import LoginAndReferalLinks from '../../shared/components/login-referal-links'
 
 export default class SplashScreen extends Component<Props> {
 
@@ -30,25 +31,18 @@ export default class SplashScreen extends Component<Props> {
               />
               <Text style={styles.welcomeText}>Welcome To Football Frenzy</Text>
             </View>
-
-            {
-              <View style={styles.links}>
-                <View style={{marginTop: '20%'}}/>
-                <TouchableOpacity onPress={this._onPressButton} style={styles.button}>
-                  <Text style={styles.buttonText}>{`Let's Play`}</Text>
-                </TouchableOpacity>
-                <View style={styles.linkFooter}>
-                  <View style={styles.textContainer}>
-                    <Text style={styles.textQuestion}>Have a referal code ?</Text>
-                    <Text style={styles.textLink}>Enter a code</Text>
-                  </View>
-                  <TouchableOpacity style={styles.textContainer} onPress={this.navigateToLoginPage}>
-                    <Text style={[styles.textQuestion, styles.alignRight]}>Already a user?</Text>
-                    <Text style={[styles.textLink, styles.alignRight]}>Log In</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            }
+            <View style={styles.links}>
+              <View style={{marginTop: '20%'}}/>
+              <TouchableOpacity onPress={this._onPressButton} style={styles.button}>
+                <Text style={styles.buttonText}>{`Let's Play`}</Text>
+              </TouchableOpacity>
+              <LoginAndReferalLinks
+                linkContainer={styles.linkFooter}
+                textContainer={styles.textContainer}
+                textQuestion={styles.textQuestion}
+                textLink={styles.textLink}
+              />
+            </View>
           </LinearGradient>
         </ImageBackground>
       </View>
