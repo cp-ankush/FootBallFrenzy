@@ -73,7 +73,7 @@ export default class LoginScreen extends Component<Props> {
             </View>
             <View style={styles.inputContainer}>
               <TextInput style={styles.textInput}
-              placeholder="Mobile no."
+              placeholder="Email or Mobile no"
               placeholderTextColor="#BDBDBD"/>
               <View style={styles.separator} />
               <TextInput style={styles.textInput}
@@ -108,7 +108,7 @@ export default class LoginScreen extends Component<Props> {
                   </TouchableOpacity>
                 </View>
                 <TouchableOpacity style={styles.footerContainer} onPress={this.navigateToRegistrationPage}>
-                  <Text style={styles.questionText}>Do you have an account ?  </Text>
+                  <Text style={styles.questionText}>Not a member ? </Text>
                   <Text style={styles.register}>Register</Text>
                 </TouchableOpacity>
               </View>
@@ -187,7 +187,7 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 45,
-    backgroundColor: '#0288D1',
+    backgroundColor: '#388E3C',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',

@@ -9,9 +9,9 @@ export default class Landing extends Component<Props> {
     return (
       <Router>
         <Stack key="root">
-          <Scene key="splash" component={SplashScreen} initial hideNavBar/>
+          <Scene key="splash" component={SplashScreen} hideNavBar/>
           <Scene key="login" component={LoginScreen}  hideNavBar/>
-          <Scene key="registration" component={RegistrationScreen} hideNavBar/>
+          <Scene key="registration" component={RegistrationScreen} initial hideNavBar/>
         </Stack>
       </Router>
     );
