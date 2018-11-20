@@ -9,6 +9,9 @@ export default class LandingScreen extends Component<Props> {
   navigateToLoginPage = () => {
     Actions.login();
   }
+  _onPressButton = () => {
+    Actions.home();
+  }
   render() {
     return (
       <View style={styles.container}>
