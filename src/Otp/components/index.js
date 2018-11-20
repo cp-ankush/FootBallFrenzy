@@ -1,13 +1,28 @@
-import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, TouchableOpacity, Image } from 'react-native';
+import React from 'react';
+import {StyleSheet, View, Text, ImageBackground, Image } from 'react-native';
 import CodeInput from 'react-native-confirmation-code-input';
 import LinearGradient from 'react-native-linear-gradient';
 
 class Otp extends React.Component{
+  state = {
+    seconds: 30 
+  }
+  tick() {
+    this.setState(prevState => ({
+      seconds: prevState.seconds - 1
+    }));
+  }
+  componentDidMount() {
+    this.interval = setInterval(() => this.tick(), 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.interval);
+  }
   _onFulfill = code => {
 
   }
   render(){
+    const resendText = this.state.seconds > 0 ? `Resend in ${this.state.seconds} sec`: `Resend OTP`;
     return (
       <View style={styles.container}>
         <ImageBackground
@@ -51,12 +66,12 @@ class Otp extends React.Component{
                 autoFocus={false}
                 onFulfill={(code) => this._onFulfill(code)}
                 containerStyle={{height: 60, padding: 0, margin: 0, flex: 0}}
-              />
-              <Text style={styles.resendText}>Resend in 30 sec</Text>
+              />        
+                <Text style={styles.resendText}>{resendText}</Text>
               </View>
-          </View>
-          <View style={styles.button}>
+              <View style={styles.button}>
             <Text style={styles.verify}>VERIFY</Text>
+          </View>
           </View>
         </View>
       </View>
@@ -71,7 +86,8 @@ const styles = StyleSheet.create({
   imageContainer: {
     flex: 0, 
     justifyContent: 'center', 
-    alignItems: 'center'
+    alignItems: 'center',
+    marginTop: '10%',
   },
   linearGradient: {
     flex: 1,
@@ -90,6 +106,7 @@ const styles = StyleSheet.create({
     position: 'relative',
     paddingHorizontal: '3%',
     paddingTop: '3%',
+    paddingHorizontal: '5%',
   },
   otpForm: {
     position: 'absolute',
@@ -99,9 +116,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '105%',
     alignSelf: 'center',
-    paddingHorizontal: '6%',
-    paddingTop: '10%',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   otp_verification: {
@@ -126,9 +141,9 @@ const styles = StyleSheet.create({
   },
   button: {
     backgroundColor: '#0288D1',
-    height: 40,
+    height: 50,
     width: '100%',
-    alignSelf: 'flex-start',
+    alignSelf: 'flex-end',
     flex: 0,
     justifyContent: 'center',
     alignItems: 'center'

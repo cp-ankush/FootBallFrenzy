@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   },
   form: {
     position: 'absolute',
-    top: '-5%',
+    top: '-3%',
     backgroundColor: 'white',
     flex: 1,
     width: '100%',
