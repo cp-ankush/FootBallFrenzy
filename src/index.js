@@ -7,6 +7,7 @@ import OtpScreen from './Otp/components';
 import ForgotPasswordScreen from './ForgotPassword/components';
 import ConfirmPasswordScreen from './ForgotPassword/components/confirmPassword';
 import Home from './Home/components';
+import EntryFee from './EntryFee';
 
 export default class Landing extends Component<Props> {
   render() {
@@ -20,6 +21,7 @@ export default class Landing extends Component<Props> {
           <Scene key="forgotPassword" component={ForgotPasswordScreen}  hideNavBar/>
           <Scene key="confirmPassword" component={ConfirmPasswordScreen}  hideNavBar/>
           <Scene key="home" component={Home} initial hideNavBar/>
+          <Scene key="entryFee" component={EntryFee}  hideNavBar />
         </Stack>
       </Router>
     );

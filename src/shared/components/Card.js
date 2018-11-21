@@ -1,17 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
 
-const AlertBox = () => (
-  Alert.alert(
-    'Bet Now',
-    'This Functionality is coming soon.',
-    [
-      {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ],
-    { cancelable: false }
-  )
-)
+import {Actions} from 'react-native-router-flux';
+
+const navigateToEntryFeePage = (props) => {
+  Actions.entryFee(props);
+}
 
 const _renderEventTitle = (title) => (
   <View>
@@ -29,7 +23,7 @@ const Card = props => {
         <Text style={styles.upcomingMatches}>
           {`${props.data.name}\n${props.data.time}`}
         </Text>
-        <TouchableOpacity onPress={AlertBox} style={styles.button}>
+        <TouchableOpacity onPress={() => {navigateToEntryFeePage(props)}} style={styles.button}>
           <Text style={styles.buttonText}>Bet Now</Text>
         </TouchableOpacity>
       </View>
@@ -119,11 +113,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: '2%',
   },
   teamImage: {
-    width: 55, 
+    width: 55,
     height: 35,
   },
   vsStyle: {
-    width: 35, 
+    width: 35,
     height: 55,
   },
 });
