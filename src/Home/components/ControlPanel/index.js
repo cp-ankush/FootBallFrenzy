@@ -111,7 +111,7 @@ export default class ControlPanel extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: '#FFF',
   },
   backgroundImage: {
     flex: 1,

@@ -10,8 +10,8 @@ import Drawer from 'react-native-drawer'
 import ControlPanel from './ControlPanel'
 
 const drawerStyles = {
-  drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3, },
-  main: {paddingLeft: 3},
+  drawer: { elevation: 4, shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3, },
+  main: {paddingLeft: 3, }
 }
 
 export default class Home extends React.Component {
@@ -73,7 +73,6 @@ export default class Home extends React.Component {
   render() {
     return (
       <Drawer
-        open={true}
         ref={(ref) => this._drawer = ref}
         type="overlay"
         content={<ControlPanel />}
@@ -97,7 +96,7 @@ export default class Home extends React.Component {
               renderScene={this._renderScene()}
               onIndexChange={index => this.setState({ index })}
               canJumpToTab={() => (this.state.isUserLoggedIn)}
-              swipeEnabled={this.state.isUserLoggedIn}
+              swipeEnabled={this.state.isUserLoggedIn? true : false}
             />
       </View>
     </Drawer>
