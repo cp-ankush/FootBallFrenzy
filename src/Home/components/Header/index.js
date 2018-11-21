@@ -5,7 +5,7 @@ export default class Header extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity >
+        <TouchableOpacity onPress={this.props.openControlPanel}>
           <Image
            style={styles.menuIconStyle}
            source={require('../../../../assets/images/menu-icon.png')}
