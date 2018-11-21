@@ -105,7 +105,7 @@ export default class RegistrationScreen extends Component<Props> {
                   placeholderTextColor="#BDBDBD"/>
                   <Text style={styles.subtitleText}>Minimum 8 characters with 1 number/symbol</Text>
                   <View style={styles.buttonContainer}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={Actions.showAvatarList}>
                       <Text style={styles.register}>REGISTER</Text>
                     </TouchableOpacity>
                     <View style={styles.terms}>
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#E3E3E3',
     position: 'relative',
     paddingHorizontal: '3%',
-    paddingTop: '3%',
+    paddingTop:  '3%',
   },
   form: {
     position: 'absolute',

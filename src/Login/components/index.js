@@ -85,7 +85,7 @@ export default class LoginScreen extends Component<Props> {
               placeholder="Password"
               placeholderTextColor="#BDBDBD"/>
               <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity style={styles.button} onPress={() => Actions.home({user: true})}>
                   <Text style={styles.login}>LOGIN</Text>
                 </TouchableOpacity>
                 {

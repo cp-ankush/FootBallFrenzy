@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
 
 export default class Header extends Component {
   render() {
+    const title = (this.props.isUserLoggedIn) ? 'John' : 'Guest';
     return (
       <View style={styles.container}>
         <TouchableOpacity >
@@ -12,7 +13,7 @@ export default class Header extends Component {
          />
         </TouchableOpacity>
         <View style={styles.textView}>
-          <Text style={styles.userName}>Welcome, Guest</Text>
+          <Text style={styles.userName}>{`Welcome, ${title}`}</Text>
         </View>
         <TouchableOpacity>
           <Image

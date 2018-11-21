@@ -1,9 +1,10 @@
 import React from 'react';
-import {StyleSheet, Text, View, FlatList, ImageBackground, Image} from 'react-native';
+import {StyleSheet, Text, View, Image} from 'react-native';
 import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import UpcomingEvents from './Matches/upcoming-events';
 import PastEvents from './Matches/past-events';
 import LiveEvents from './Matches/live-events';
+import StarredEvents from './Matches/starred-events';
 import Header from './Header'
 
 export default class Home extends React.Component {
@@ -16,6 +17,7 @@ export default class Home extends React.Component {
       { key: 'past', title: 'PAST',  },
       { key: 'live', title: 'LIVE',  },
     ],
+    isUserLoggedIn: this.props.user,
   };
 
   _renderStarLabel = () => (
@@ -24,7 +26,7 @@ export default class Home extends React.Component {
     </View>
   )
 
-  _renderOtherLabel = ({route, focused}) => (
+  _renderOtherLabel = ({route}) => (
     <View style={styles.matchesLabelContainer}>
       <Text style={styles.matchesLabelText}>{route.title}</Text>
     </View>
@@ -36,11 +38,11 @@ export default class Home extends React.Component {
         {...props}
         indicatorStyle={styles.indicatorStyle}
         style={styles.tabBarStyle}
-        renderLabel={({ route, focused }) => {
+        renderLabel={({ route }) => {
           if (route.title === 'Star') {
             return this._renderStarLabel()
           } else {
-            return this._renderOtherLabel({route, focused})
+            return this._renderOtherLabel({route})
           }
         }}
         labelStyle={styles.labelStyle}
@@ -50,7 +52,7 @@ export default class Home extends React.Component {
 
   _renderScene = () => (
     SceneMap({
-      star: UpcomingEvents,
+      star: StarredEvents,
       upcoming: UpcomingEvents,
       past: PastEvents,
       live: LiveEvents
@@ -60,13 +62,13 @@ export default class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
+        <Header isUserLoggedIn={this.state.isUserLoggedIn}/>
         <TabView
           navigationState={this.state}
           renderTabBar={this._renderTabBar}
           renderScene={this._renderScene()}
           onIndexChange={index => this.setState({ index })}
-          canJumpToTab={() => (false)}
+          canJumpToTab={() => (this.state.isUserLoggedIn)}
           swipeEnabled={false}
         />
     </View>

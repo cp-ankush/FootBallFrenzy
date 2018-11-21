@@ -4,6 +4,7 @@ import { TabView, TabBar, SceneMap } from 'react-native-tab-view';
 import LinearGradient from 'react-native-linear-gradient';
 import EntryFee from './components/entry-fee'
 import Pay from './components/pay'
+import { Actions } from 'react-native-router-flux';
 
 export default class EntryFeeScreen extends React.Component {
 
@@ -15,8 +16,6 @@ export default class EntryFeeScreen extends React.Component {
     ],
   };
 
-
-
   _renderTabBar = props => {
     return (
       <TabBar
@@ -27,7 +26,7 @@ export default class EntryFeeScreen extends React.Component {
       />
     );
   };
-  //
+  
   _renderScene = () => (
     SceneMap({
       entryFee: EntryFee,
@@ -47,7 +46,7 @@ export default class EntryFeeScreen extends React.Component {
           colors={['rgba(49,34,34,.4)', 'rgba(0,0,0,0.5)']}
           style={styles.linearGradient}>
             <View style={styles.matchInfoContainer}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={()=> Actions.home()}>
                 <Image
                   source={require('../../assets/images/back-icon.png')}
                   style={styles.backIcon}

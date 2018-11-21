@@ -6,7 +6,7 @@ import {Actions} from 'react-native-router-flux';
 
 class Otp extends React.Component{
   state = {
-    seconds: 30
+    seconds: 30,
   }
   tick() {
     this.setState(prevState => ({
@@ -26,6 +26,9 @@ class Otp extends React.Component{
   handleOtpVerification = () => {
     if (this.props.prevScreen === 'forgotPassword') {
       Actions.confirmPassword();
+    }
+    else if(this.props.isUserRegisterd) {
+      Actions.login();
     }
   }
 

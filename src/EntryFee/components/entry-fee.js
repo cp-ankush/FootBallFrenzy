@@ -1,66 +1,101 @@
 import React from 'react';
 import {StyleSheet, View, Text, TouchableOpacity, Image, ScrollView} from 'react-native';
+import {Actions} from 'react-native-router-flux';
 
 const _keyExtractor = (item) => item.id;
 
 const ticketData = [{
-  price: '$1.00'
+  price: '$1.00',
+  id: 1
 }, {
-  price: '$5.00'
+  price: '$5.00',
+  id: 2,
 },{
-  price: '$10.00'
+  price: '$10.00',
+  id: 3,
 },{
-  price: '$25.00'
+  price: '$25.00',
+  id: 4,
 },{
-  price: '$50.00'
+  price: '$50.00',
+  id: 5,
 }]
 
-const renderEntryPass = ({item, index}) => (
-  <View style={styles.ticketItemContainer} key={index}>
-    <View style={styles.itemLeft}>
-      <Image source={require('../../../assets/images/ticket-entry-pass.png')} style={styles.ticketImage} />
-      <Text style={styles.priceText}>
-        {item.price} Entry
-      </Text>
+class EntryFee extends React.Component{
+  state = {
+    data: [
+      {id: 1, value: 0},
+      {id: 2, value: 0},
+      {id: 3, value: 0},
+      {id: 4, value: 0},
+      {id: 5, value: 0}
+    ]
+  }
+  handleDecrease = (id) => {
+    //if(this.state.data){
+      this.setState({
+        data: [...this.state.data, {id, value: this.state.data[id - 1].value - 1}]
+      })
+    //}
+  }
+  handleIncrease = (id) => {
+    this.setState({
+      data: [...this.state.data, {id, value: this.state.data[id - 1].value + 1}]
+    })
+  }
+  renderEntryPass = ({item, index}) => (
+    <View style={styles.ticketItemContainer} key={index}>
+      <View style={styles.itemLeft}>
+        <Image source={require('../../../assets/images/ticket-entry-pass.png')} style={styles.ticketImage} />
+        <Text style={styles.priceText}>
+          {item.price} Entry
+        </Text>
+      </View>
+      <View style={styles.itemRight}>
+        <View style={styles.itemCount}>
+          <TouchableOpacity style={[styles.countText, styles.countMinus]} onPress={() => this.handleDecrease(item.id)}>
+            <Text>-</Text>
+          </TouchableOpacity>
+          <Text style={styles.countText}>{this.state.data[index].value}</Text>
+          <TouchableOpacity style={styles.countText} onPress={() => this.handleIncrease(item.id)}>
+            <Text>+</Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <Text style={styles.itemPrice}>$0.00</Text>
+        </View>
+      </View>
     </View>
-    <View style={styles.itemRight}>
-      <View style={styles.itemCount}>
-        <Text style={[styles.countText, styles.countMinus]}>-</Text>
-        <Text style={styles.countText}>3</Text>
-        <Text style={styles.countText}>+</Text>
+  );
+
+  render(){
+    return (
+    <View style={styles.container}>
+      <View style={styles.ticketsContainer}>
+        <TouchableOpacity style={[styles.button, styles.prizeButton]}>
+          <Text style={styles.buttonText}>YOU CAN WIN PRIZE MONEY UPTO $ 1000</Text>
+        </TouchableOpacity>
+        <ScrollView style={{flex: 1}}>
+        {
+          ticketData.map((item, index) => {
+            return this.renderEntryPass({item, index})
+          })
+        }
+        </ScrollView>
       </View>
       <View>
-        <Text style={styles.itemPrice}>$0.00</Text>
+        <View style={styles.totalContainer}>
+          <Text style={styles.totalText}>TOTAL PAYABLE AMOUNT:</Text>
+          <Text style={styles.totalPrice}>$87.00</Text>
+        </View>
+        <TouchableOpacity style={[styles.button, styles.payButton]} onPress={Actions.login}>
+          <Text style={styles.buttonText}>PROCEED TO PAY</Text>
+        </TouchableOpacity>
       </View>
     </View>
-  </View>
-)
-
-const EntryFee = () => (
-  <View style={styles.container}>
-    <View style={styles.ticketsContainer}>
-      <TouchableOpacity style={[styles.button, styles.prizeButton]}>
-        <Text style={styles.buttonText}>YOU CAN WIN PRIZE MONEY UPTO $ 1000</Text>
-      </TouchableOpacity>
-      <ScrollView style={{flex: 1}}>
-      {
-        ticketData.map((item, index) => {
-          return renderEntryPass({item, index})
-        })
-      }
-      </ScrollView>
-    </View>
-    <View>
-      <View style={styles.totalContainer}>
-        <Text style={styles.totalText}>TOTAL PAYABLE AMOUNT:</Text>
-        <Text style={styles.totalPrice}>$87.00</Text>
-      </View>
-      <TouchableOpacity style={[styles.button, styles.payButton]}>
-        <Text style={styles.buttonText}>PROCEED TO PAY</Text>
-      </TouchableOpacity>
-    </View>
-  </View>
-);
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
