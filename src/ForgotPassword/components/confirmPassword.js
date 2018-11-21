@@ -6,7 +6,7 @@ import LoginOptions from '../../shared/components/login-options';
 
 const condensedFont = Platform.OS === 'android'? 'd_dincondensed' : 'DIN Condensed'
 
-export default class LoginScreen extends Component<Props> {
+export default class ConfirmPasswordScreen extends Component<Props> {
 
   constructor(props) {
     super(props)
@@ -37,12 +37,8 @@ export default class LoginScreen extends Component<Props> {
     })
   }
 
-  navigateToRegistrationPage = () => {
-    Actions.registration();
-  }
-
-  navigateToForgotPassword = () => {
-    Actions.forgotPassword();
+  navigateToLoginScreen = () => {
+    Actions.login();
   }
 
   render(){
@@ -74,39 +70,22 @@ export default class LoginScreen extends Component<Props> {
         <View style={styles.formContainer}>
           <View style={styles.form}>
             <View style={styles.loginContainer}>
-              <Text style={styles.loginText}>LOGIN</Text>
+              <Text style={styles.loginText}>RESET PASSWORD</Text>
             </View>
             <View style={styles.inputContainer}>
               <TextInput style={styles.textInput}
-              placeholder="Email or Mobile no"
+              placeholder="New Password"
               placeholderTextColor="#BDBDBD"/>
               <View style={styles.separator} />
               <TextInput style={styles.textInput}
-              placeholder="Password"
+              placeholder="Confirm Password"
               placeholderTextColor="#BDBDBD"/>
               <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={styles.login}>LOGIN</Text>
+                <TouchableOpacity style={styles.button} onPress={this.navigateToLoginScreen}>
+                  <Text style={styles.login}>SUBMIT</Text>
                 </TouchableOpacity>
-                {
-                  this.state.showOptions &&
-                  <TouchableOpacity onPress={this.navigateToForgotPassword}>
-                    <Text style={styles.forgetPasswordStyle}>Forgot Password?</Text>
-                  </TouchableOpacity>
-                }
               </View>
             </View>
-            {
-              this.state.showOptions &&
-              <View style={styles.optionsContainer}>
-                <Text style={styles.orHeading}>OR CONTINUE WITH</Text>
-                <LoginOptions/>
-                <TouchableOpacity style={styles.footerContainer} onPress={this.navigateToRegistrationPage}>
-                  <Text style={styles.questionText}>Not a member ? </Text>
-                  <Text style={styles.register}>Register</Text>
-                </TouchableOpacity>
-              </View>
-            }
           </View>
         </View>
       </View>
@@ -153,7 +132,8 @@ const styles = StyleSheet.create({
   inputContainer: {
     flex: 0.6,
     width: '100%',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
+    justifyContent: 'center',
   },
   loginText: {
     color: '#2A2A2A',
@@ -189,71 +169,4 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold'
   },
-  forgetPasswordStyle: {
-    textDecorationLine: 'underline',
-    color: '#6C6C6C',
-    fontFamily: 'Roboto',
-    fontSize: 15,
-    paddingTop: '5%',
-  },
-  optionsContainer: {
-    flex: 0.4,
-    justifyContent: 'space-around'
-  },
-  orHeading: {
-    color: '#A2A2A2',
-    fontFamily: 'Roboto',
-    fontSize: 12,
-    lineHeight: 13,
-    textAlign: 'center',
-    paddingTop: '4%',
-  },
-  loginOptions: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-  },
-  optionButton: {
-    flexDirection: 'row',
-    elevation: 3,
-    shadowColor: '#000000',
-    shadowOffset: {
-      width: 0,
-      height: 3
-    },
-    shadowRadius: 3,
-    shadowOpacity: 0.2,
-    backgroundColor: 'white',
-    width: '40%',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 50
-  },
-  optionText: {
-    fontFamily: 'Roboto',
-    fontSize: 12,
-    fontWeight: '700',
-    textAlign: 'center',
-    paddingLeft: 10,
-  },
-  facebook: {
-    color: '#3B5998',
-  },
-  google: {
-    color: '#828282',
-  },
-  footerContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingBottom: '2%',
-  },
-  questionText: {
-    color: '#A2A2A2',
-    fontSize: 12,
-    fontFamily: 'Roboto'
-  },
-  register: {
-    fontSize: 12,
-    fontFamily: 'Roboto',
-    fontWeight: '600'
-  }
 })
