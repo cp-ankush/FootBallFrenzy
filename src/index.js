@@ -19,7 +19,7 @@ export default class Landing extends Component<Props> {
           <Scene key="otp" component={OtpScreen} hideNavBar/>
           <Scene key="forgotPassword" component={ForgotPasswordScreen}  hideNavBar/>
           <Scene key="confirmPassword" component={ConfirmPasswordScreen}  hideNavBar/>
-          <Scene key="home" component={Home} hideNavBar/>
+          <Scene key="home" component={Home} initial hideNavBar/>
         </Stack>
       </Router>
     );

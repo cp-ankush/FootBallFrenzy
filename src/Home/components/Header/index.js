@@ -8,16 +8,16 @@ export default class Header extends Component {
         <TouchableOpacity >
           <Image
            style={styles.menuIconStyle}
-           source={require('../../../assets/menu-icon.png')}
+           source={require('../../../../assets/images/menu-icon.png')}
          />
         </TouchableOpacity>
         <View style={styles.textView}>
-          <Text style={styles.userName}>Welcome, John</Text>
+          <Text style={styles.userName}>Welcome, Guest</Text>
         </View>
         <TouchableOpacity>
           <Image
            style={styles.userIconStyle}
-           source={require('../../../assets/profile-user.png')}
+           source={require('../../../../assets/images/notification-icon.png')}
          />
         </TouchableOpacity>
       </View>
@@ -47,15 +47,15 @@ const styles = StyleSheet.create({
     backgroundColor: 'black'
   },
   menuIconStyle: {
-    width: 27, 
+    width: 27,
     height: 20,
   },
   textView: {
-    justifyContent: 'center', 
+    justifyContent: 'center',
     height: 40,
   },
   userIconStyle: {
-    width: 35, 
-    height: 35,
+    width: 27,
+    height: 27,
   },
 });
