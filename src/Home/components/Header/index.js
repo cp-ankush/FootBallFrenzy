@@ -6,7 +6,7 @@ export default class Header extends Component {
     const title = (this.props.isUserLoggedIn) ? 'John' : 'Guest';
     return (
       <View style={styles.container}>
-        <TouchableOpacity >
+        <TouchableOpacity onPress={this.props.openControlPanel}>
           <Image
            style={styles.menuIconStyle}
            source={require('../../../../assets/images/menu-icon.png')}

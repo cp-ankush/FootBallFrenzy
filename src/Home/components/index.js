@@ -6,6 +6,13 @@ import PastEvents from './Matches/past-events';
 import LiveEvents from './Matches/live-events';
 import StarredEvents from './Matches/starred-events';
 import Header from './Header'
+import Drawer from 'react-native-drawer'
+import ControlPanel from './ControlPanel'
+
+const drawerStyles = {
+  drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3, },
+  main: {paddingLeft: 3},
+}
 
 export default class Home extends React.Component {
 
@@ -59,19 +66,41 @@ export default class Home extends React.Component {
     })
   )
 
+  openControlPanel = () => {
+    this._drawer.open()
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <Header isUserLoggedIn={this.state.isUserLoggedIn}/>
-        <TabView
-          navigationState={this.state}
-          renderTabBar={this._renderTabBar}
-          renderScene={this._renderScene()}
-          onIndexChange={index => this.setState({ index })}
-          canJumpToTab={() => (this.state.isUserLoggedIn)}
-          swipeEnabled={false}
-        />
-    </View>
+      <Drawer
+        open={true}
+        ref={(ref) => this._drawer = ref}
+        type="overlay"
+        content={<ControlPanel />}
+        tapToClose={true}
+        openDrawerOffset={0.2}
+        panCloseMask={0.2}
+        closedDrawerOffset={-3}
+        styles={drawerStyles}
+        tweenHandler={(ratio) => ({
+          main: { opacity:(2-ratio)/2 }
+        })}
+        >
+        <View style={styles.container}>
+          <Header
+            openControlPanel={this.openControlPanel}
+            isUserLoggedIn={this.state.isUserLoggedIn}
+            />
+            <TabView
+              navigationState={this.state}
+              renderTabBar={this._renderTabBar}
+              renderScene={this._renderScene()}
+              onIndexChange={index => this.setState({ index })}
+              canJumpToTab={() => (this.state.isUserLoggedIn)}
+              swipeEnabled={this.state.isUserLoggedIn}
+            />
+      </View>
+    </Drawer>
     )
   }
 }
